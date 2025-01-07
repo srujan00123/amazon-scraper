@@ -6,9 +6,9 @@ import json
 payload = {
     "source": "amazon_search",
     "domain": "in",
-    "query": "ryzen 9 9900x",
+    "query": "cpu",
     "start_page": 1,
-    "pages": 1,
+    "pages": 10,
     "parse": True,
     # "context": [
     #     {"key": "category_id", "value": 16391843031},
