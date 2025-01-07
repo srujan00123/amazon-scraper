@@ -1,29 +1,31 @@
 import requests
 from pprint import pprint
-
+import json
 
 # Structure payload.
 payload = {
-    'source': 'amazon_search',
-    'domain': 'nl',
-    'query': 'adidas',
-    'start_page': 11,
-    'pages': 10,
-    'parse': True,
-    'context': [
-        {'key': 'category_id', 'value': 16391843031},
-        {'key': 'merchant_id', 'value': '3AA17D2BRD4YMT0X'}
-    ],
+    "source": "amazon_search",
+    "domain": "in",
+    "query": "ryzen 9 9900x",
+    "start_page": 1,
+    "pages": 1,
+    "parse": True,
+    # "context": [
+    #     {"key": "category_id", "value": 16391843031},
+    #     {"key": "merchant_id", "value": "3AA17D2BRD4YMT0X"},
+    # ],
 }
 
 
-# Get response.
 response = requests.request(
-    'POST',
-    'https://realtime.oxylabs.io/v1/queries',
-    auth=('user', 'pass1'),
+    "POST",
+    "https://realtime.oxylabs.io/v1/queries",
+    auth=("srujan_3txSt", "Oxylab+=2000"),
     json=payload,
 )
 
-# Print prettified response to stdout.
-pprint(response.json())
+# Save JSON response to a file.
+with open("response.json", "w") as file:
+    json.dump(response.json(), file, indent=4)
+
+print("Response saved to response.json")
